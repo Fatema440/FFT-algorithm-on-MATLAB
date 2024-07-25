@@ -1,0 +1,18 @@
+% Define the input signal N=8
+
+X = [1, 0.5, 0, 0 ,0 ,0 ,0 ,0.5];
+X_fft = fft(X);
+N = length(X); % Length of the signal
+frequencies = (0:N-1)*(1/N); % Frequency axis
+magnitude_spectrum = abs(X_fft); % Magnitude of the FFT
+subplot(2,1,1);
+stem(frequencies, magnitude_spectrum);
+xlabel('Frequency (cycles/sample)');
+ylabel('Magnitude');
+title('Magnitude Spectrum');
+phase_spectrum = angle(X_fft); % Phase of the FFT
+subplot(2,1,2);
+stem(frequencies, phase_spectrum);
+xlabel('Frequency (cycles/sample)');
+ylabel('Phase (radians)');
+title('Phase Spectrum');
